@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<meta content="Research on first-order optimality certification and local geometry in nonsmooth nonconvex robust principal component analysis." name="description"/>
+<meta content="Nonconvex Robust PCA | Pinxi Gong" property="og:title"/>
+<meta content="Research on first-order optimality certification and local geometry in nonsmooth nonconvex robust principal component analysis." property="og:description"/>
+<meta content="website" property="og:type"/>
+<title>Nonconvex Robust PCA | Pinxi Gong</title>
+<link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="site-nav"><div class="container nav-inner">
+<a class="brand" href="/">Pinxi Gong</a>
+<nav aria-label="Main navigation" class="nav-links"><a href="/#publications">Publications</a><a href="/#interests">Interests</a><a href="/#research">Research</a><a href="/#experience">Experience</a><a href="/#education">Education</a><a href="/#honors">Honors</a></nav>
+</div></div>
+<main class="container detail-main">
+<a class="back" href="../index.html#research">← Back to research</a>
+<header class="detail-header">
+<p class="eyebrow">Research project · Summer 2025</p>
+<h1 class="detail-title">Certifying Optimality in Nonconvex Robust PCA</h1>
+<p class="tagline">The University of Hong Kong · Advisor: <a href="https://lexiaolai.com/">Prof. Lexiao Lai</a></p>
+<p class="detail-lead">A theoretical study of first-order optimality and local geometry in nonsmooth, nonconvex low-rank matrix factorization.</p>
+<div class="project-links"><a href="https://arxiv.org/abs/2601.21333">arXiv preprint ↗</a><a href="https://arxiv.org/pdf/2601.21333">PDF ↗</a></div>
+</header>
+<section class="main-section">
+<div class="section-heading"><h2>The problem</h2></div>
+<p>Robust principal component analysis aims to separate a low-rank signal <em>L</em> from sparse corruptions <em>S</em> in an observed matrix <em>M</em> = <em>L</em> + <em>S</em>. A computationally attractive formulation replaces the low-rank matrix by a product of two smaller factor matrices and minimizes an entrywise ℓ₁ residual.</p>
+<div aria-label="Robust PCA factored nonsmooth nonconvex objective" class="formula">min<sub>X,Y</sub> f(X,Y) = ‖XY<sup>⊤</sup> − M‖<sub>1</sub></div>
+<p>This objective is <strong>nonsmooth and nonconvex</strong>. A central question is why ground-truth factorizations should still have favorable optimality properties when the observations contain sparse outliers.</p>
+</section>
+<section class="main-section">
+<div class="section-heading"><h2>Proof strategy · From structure to criticality</h2></div>
+<p>My research contribution centered on <strong>first-order optimality certification</strong>, connecting the geometry of the low-rank tangent space to concentration estimates for randomly supported corruptions.</p>
+<div aria-label="Conceptual four-step proof roadmap" class="proof-flow">
+<div><strong>1. Low-rank geometry</strong>Describe the tangent space at the ground-truth rank-r matrix.</div>
+<div><strong>2. Sparse support</strong>Study the interaction between that space and random corruption locations.</div>
+<div><strong>3. Concentration bound</strong>Control the restricted ℓ₁ action of the sparse-support projector.</div>
+<div><strong>4. Certification</strong>Establish Clarke criticality of ground-truth factorizations under stated assumptions.</div>
+</div>
+<p>In particular, under appropriate incoherence, rank, and sparsity conditions, the analysis bounds the restricted ℓ₁ operator norm of the composition between a sparse-support projection and a low-rank tangent-space projection, leading to a first-order certificate.</p>
+<p>Tools involved include <strong>Clarke subdifferentials</strong>, tangent-space projections, incoherence, concentration inequalities, and union bounds.</p>
+</section>
+<section class="main-section">
+<div class="section-heading"><h2>Paper-level results</h2></div>
+<p>Our preprint proves that, under the paper's statistical assumptions, ground-truth rank-r factorizations are <strong>Clarke critical points with high probability</strong>. It also characterizes rank-dependent local geometry: exact-rank factorizations form <strong>sharp local minima</strong>, while certain overparameterized ground-truth factorizations are <strong>strict saddle points</strong>.</p>
+<div class="note-box"><p>This is a local optimality and geometry result, <strong>not</strong> a claim that the ground truth globally minimizes the nonconvex objective under all sparse corruptions. For assumptions and the precise theorem statement, please consult the <a href="https://arxiv.org/abs/2601.21333">paper</a>.</p></div>
+</section><section class="main-section" id="rpca-geometry">
+<div class="section-heading"><h2>Critical-point geometry</h2></div>
+<p>Under the incoherence, rank, and sparse-corruption assumptions of Theorem 1, ground-truth factorizations are <strong>Clarke critical points with high probability</strong>. Their second-order behavior changes with the factorization rank: <strong>sharp local minima when k = r</strong>, but <strong>strict saddle points when k &gt; r</strong>, for the rank-r factorization set considered in the paper.</p>
+<figure class="figure-wide"><img alt="Conceptual local loss geometry: sharp local minimum in the exact-rank setting versus strict saddle under overparameterization" loading="lazy" src="../figures/rpca_critical_point_geometry.png"/><figcaption>Geometry schematic. The two surfaces are illustrative cross-sections, not actual numerically evaluated robust PCA loss surfaces. The statements apply to the specified ground-truth factorization set under the paper's assumptions (Theorem 1).</figcaption></figure>
+<p>In particular, criticality alone does not imply local optimality in the overparameterized setting. Extra factor degrees of freedom can create directions of descent, even when the product equals the true low-rank matrix.</p>
+</section><section class="main-section" id="rpca-experiments">
+<div class="section-heading"><h2>Numerical experiments</h2></div>
+<p>Our paper studies the <strong>ℓ₁ factorized objective solved by a subgradient method</strong>. The experiments illustrate convergence with small initialization (Figure 1), compare recovery success rates across corruption probabilities and ranks (Figure 2), and benchmark runtime and accuracy against alternative methods (Table 1).</p>
+<figure class="figure-wide"><img alt="Benchmark based on actual paper Table 1: runtime and relative spectral recovery error across five methods" loading="lazy" src="../figures/rpca_benchmark.png"/><figcaption>Benchmark reproduced from Table 1 of our preprint: 10 random synthetic instances, 10,000 × 8,000 matrices, search rank k = 400 and true rank r = 200. Lower times and lower errors are better. Runtime comparisons are implementation- and setting-dependent.</figcaption></figure>
+<p>In this specific benchmark, the factorized subgradient method took <strong>199.4 seconds</strong> on average and attained relative spectral error <strong>8.21 × 10⁻¹⁰</strong>, compared with 479.1 seconds and 1.48 × 10⁻⁸ for PCP solved by IALM. Other implementations may differ in performance.</p>
+<div class="section-heading" style="margin-top:25px"><h2>Recovery across ranks and corruption levels</h2></div>
+<p>The paper also reports empirical recovery success rates on 100 × 80 synthetic matrices, with 100 trials at each grid point (Figure 2). The left heatmap corresponds to subgradient minimization of the factorized objective with search rank k = 20; the right heatmap corresponds to PCP solved by IALM.</p>
+<div class="figure-grid external-figures">
+<figure><a href="https://arxiv.org/html/2601.21333v1/success_subgradient.png" rel="noopener noreferrer" target="_blank"><img alt="Original paper Figure 2a: factorized subgradient method recovery success rate heat map" loading="lazy" src="https://arxiv.org/html/2601.21333v1/success_subgradient.png"/></a><figcaption>Original preprint Figure 2(a), subgradient method; image hosted by arXiv.</figcaption></figure>
+<figure><a href="https://arxiv.org/html/2601.21333v1/success_ialm.png" rel="noopener noreferrer" target="_blank"><img alt="Original paper Figure 2b: principal component pursuit via IALM recovery success rate heat map" loading="lazy" src="https://arxiv.org/html/2601.21333v1/success_ialm.png"/></a><figcaption>Original preprint Figure 2(b), PCP via IALM; image hosted by arXiv.</figcaption></figure>
+</div>
+<p class="small muted">Original Figure 1 also includes convergence traces for exact-rank and overparameterized factorizations. See <a href="https://arxiv.org/html/2601.21333v1#S1.SS1">Section 1.1 of the preprint</a> for the trajectories and step-size schedule.</p>
+</section>
+<section class="main-section">
+<div class="section-heading"><h2>Publication &amp; presentation</h2></div>
+<p><strong>Pinxi Gong</strong>, Lexiao Lai, Jianhao Ma. <a href="https://arxiv.org/abs/2601.21333"><em>Certifying Optimality in Nonconvex Robust PCA</em></a>. arXiv:2601.21333, 2026. Preprint under review at <em>IEEE Transactions on Information Theory</em>.</p>
+<p><em>A First Step to Certifying Optimality in Nonconvex Robust PCA.</em> Poster presentation, HKU Faculty of Science SRF/ORF/URFP, October 2025.</p>
+<div class="project-links"><a href="../index.html#research">Return to homepage →</a></div>
+</section>
+</main>
+<footer class="container footer"><span>© 2026 Pinxi Gong</span><span><a href="../cv.pdf">CV</a> · <a href="mailto:gpx2005@connect.hku.hk">Email</a></span></footer>
+</body>
+</html>

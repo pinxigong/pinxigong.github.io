@@ -1,109 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <meta name="description" content="Pinxi Gong — undergraduate mathematics student at the University of Hong Kong. Research in optimization, low-rank recovery, and high-dimensional statistics.">
-  <title>Pinxi Gong</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<meta content="Pinxi Gong — Mathematics undergraduate at the University of Hong Kong. Research in nonconvex optimization, low-rank recovery, and high-dimensional statistics." name="description"/>
+<meta content="Pinxi Gong | Academic Homepage" property="og:title"/>
+<meta content="Pinxi Gong — Mathematics undergraduate at the University of Hong Kong. Research in nonconvex optimization, low-rank recovery, and high-dimensional statistics." property="og:description"/>
+<meta content="website" property="og:type"/>
+<title>Pinxi Gong | Academic Homepage</title>
+<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
-  <div class="page">
-    <header class="site-header">
-      <div>
-        <h1>Pinxi Gong</h1>
-        <p class="subtitle">B.Sc. Mathematics · The University of Hong Kong</p>
-      </div>
-      <nav aria-label="Page navigation">
-        <a href="#research-interests">Interests</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-      </nav>
-    </header>
-
-    <main>
-      <section id="about" aria-labelledby="about-heading">
-        <h2 id="about-heading">About</h2>
-        <p>I am a final-year undergraduate student at the <strong>University of Hong Kong</strong>, majoring in Mathematics and minoring in Statistics. I studied at the <strong>University of Notre Dame</strong> as an exchange student in Spring 2026.</p>
-        <p>I am interested in the mathematical foundations of data science, with an emphasis on optimization and low-rank matrix/tensor recovery.</p>
-        <p class="links"><a href="cv.pdf">CV (PDF)</a><span aria-hidden="true">·</span><a href="mailto:gpx2005@connect.hku.hk">Email</a><span aria-hidden="true">·</span><a href="https://arxiv.org/abs/2601.21333" target="_blank" rel="noopener noreferrer">arXiv</a></p>
-      </section>
-
-      <section id="research-interests" aria-labelledby="interests-heading">
-        <h2 id="interests-heading">Research Interests</h2>
-        <p>Mathematical foundations of data science; nonconvex optimization; low-rank matrix and tensor recovery; high-dimensional statistics.</p>
-      </section>
-
-      <section id="publications" aria-labelledby="publications-heading">
-        <h2 id="publications-heading">Publications</h2>
-        <div class="entry">
-          <p class="entry-title"><a href="https://arxiv.org/abs/2601.21333" target="_blank" rel="noopener noreferrer">Certifying Optimality in Nonconvex Robust PCA</a></p>
-          <p><strong>Pinxi Gong</strong>, Lexiao Lai, and Jianhao Ma.</p>
-          <p class="muted">arXiv:2601.21333 (2026). Under review at <em>IEEE Transactions on Information Theory</em>.</p>
-        </div>
-      </section>
-
-      <section id="projects" aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Research</h2>
-
-        <article class="project">
-          <div class="project-header">
-            <h3>Local Convergence Analysis of CP-ALS for Tensor Completion</h3>
-            <span class="date">Jun 2026 – present</span>
-          </div>
-          <p class="muted">University of Notre Dame · Advisor: Prof. Yuefeng Han</p>
-          <p>I aim to develop a rigorous proof of the fast convergence of the synchronous CP-ALS algorithm for noisy tensor completion. The project involves masked least-squares updates, random Gram matrix conditioning, sampling concentration, and the dependence between iterates and observed entries, supported by numerical experiments.</p>
-
-          <!-- OPTIONAL RESEARCH FIGURE: after placing an image in the figures/ folder,
-               remove the comment markers surrounding the example below.
-          <figure class="research-figure">
-            <img src="figures/cp-als-convergence.png"
-                 alt="Convergence curves for masked CP-ALS in a tensor completion experiment"
-                 loading="lazy">
-            <figcaption>Figure 1. Example numerical convergence curves for masked CP-ALS.</figcaption>
-          </figure>
-          -->
-        </article>
-
-        <article class="project">
-          <div class="project-header">
-            <h3>Certifying Optimality in Nonconvex Robust PCA</h3>
-            <span class="date">Jun – Aug 2025</span>
-          </div>
-          <p class="muted">The University of Hong Kong · Advisor: Prof. Lexiao Lai</p>
-          <p>I investigated first-order optimality conditions for an ℓ₁-factorized robust PCA formulation. Using tangent-space bounds and concentration inequalities, this work establishes sufficient rank and corruption-sparsity conditions under which ground-truth factorizations are Clarke critical points with high probability.</p>
-          <p><a href="https://arxiv.org/abs/2601.21333" target="_blank" rel="noopener noreferrer">Preprint</a> · Research poster presented at HKU on October 31, 2025.</p>
-        </article>
-
-        <article class="project">
-          <div class="project-header">
-            <h3>Quantitative Trading Simulation</h3>
-            <span class="date">Jul – Aug 2024</span>
-          </div>
-          <p class="muted">The University of Hong Kong · Advisor: Dr. Eric Ah Lik Li</p>
-          <p>Implemented quantitative trading simulations using Python and applied hypothesis testing to compare simulated outcomes with empirical market results.</p>
-        </article>
-      </section>
-
-      <section id="education" aria-labelledby="education-heading">
-        <h2 id="education-heading">Education</h2>
-        <div class="education-entry">
-          <div class="project-header"><h3>The University of Hong Kong</h3><span class="date">2023 – 2027 (expected)</span></div>
-          <p>B.Sc. in Mathematics, Minor in Statistics</p>
-        </div>
-        <div class="education-entry">
-          <div class="project-header"><h3>University of Notre Dame</h3><span class="date">Spring 2026</span></div>
-          <p>Semester exchange</p>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <a href="mailto:gpx2005@connect.hku.hk">gpx2005@connect.hku.hk</a>
-      <span>Last updated: November 2026</span>
-    </footer>
-  </div>
+<div class="site-nav"><div class="container nav-inner">
+<a class="brand" href="/">Pinxi Gong</a>
+<nav aria-label="Main navigation" class="nav-links"><a href="/#publications">Publications</a><a href="/#interests">Interests</a><a href="/#research">Research</a><a href="/#experience">Experience</a><a href="/#education">Education</a><a href="/#honors">Honors</a></nav>
+</div></div>
+<main class="container">
+<header class="hero" id="top">
+<div class="hero-grid">
+<div>
+<p class="eyebrow">Academic homepage</p>
+<h1>Pinxi Gong</h1>
+<p class="tagline">Mathematics · Statistics · Optimization · Data Science</p>
+<p>I am a final-year B.Sc. student in <strong>Mathematics</strong> (minor in Statistics) at <a href="https://www.hku.hk/">The University of Hong Kong</a>. I spent Spring 2026 at the <a href="https://www.nd.edu/">University of Notre Dame</a> as an exchange student.</p>
+<p>I am interested in the mathematical foundations of data science, with an emphasis on optimization theories and algorithms.</p>
+<div class="quick-links">
+<a href="mailto:gpx2005@connect.hku.hk">Email</a>
+<a href="cv.pdf">Curriculum Vitae</a>
+<a href="https://arxiv.org/abs/2601.21333" rel="noopener noreferrer" target="_blank">arXiv</a>
+</div>
+</div>
+<aside aria-label="Academic profile" class="profile-note">
+<p class="little-title">Current focus</p>
+<p><strong>Institution</strong><br/>The University of Hong Kong</p>
+<p><strong>Research</strong><br/>Optimization for data science<br/>Low-rank recovery<br/>Statistical theory</p>
+<p><strong>Expected graduation</strong><br/>June 2027</p>
+</aside>
+</div>
+</header><section class="main-section" id="publications">
+<div class="section-heading"><h2>Publications &amp; Presentations</h2></div>
+<article class="paper-row">
+<p class="paper-title"><a href="https://arxiv.org/abs/2601.21333">Certifying Optimality in Nonconvex Robust PCA</a></p>
+<p class="authors"><strong>Pinxi Gong</strong>, Lexiao Lai, Jianhao Ma</p>
+<p class="venue">arXiv:2601.21333, 2026 · Preprint · Under review at <em>IEEE Transactions on Information Theory</em></p>
+<p class="abstract">The paper characterizes first-order optimality and local geometry of nonsmooth, nonconvex low-rank factorizations for robust PCA, under assumptions on incoherence and sparse corruption.</p>
+<div class="project-links"><a href="https://arxiv.org/abs/2601.21333">arXiv ↗</a><a href="https://arxiv.org/pdf/2601.21333">PDF ↗</a><a href="research/robust-pca.html">Summary →</a></div>
+</article>
+<div class="poster-item"><strong>A First Step to Certifying Optimality in Nonconvex Robust PCA.</strong> Poster presentation, HKU Faculty of Science SRF/ORF/URFP, October 2025.</div>
+</section>
+<section class="main-section" id="interests">
+<div class="section-heading"><h2>Research Interests</h2></div><p class="interests-text">Mathematical Foundations of Data Science, Nonconvex Optimization, Low-rank Matrix and Tensor Recovery, High-dimensional Statistics</p>
+</section>
+<section class="main-section" id="research">
+<div class="section-heading"><h2>Research</h2><span class="section-kicker">Theory informed by numerical evidence</span></div>
+<article class="research-entry">
+<p class="research-meta">2026 – Present   /   University of Notre Dame</p>
+<h3><a href="research/cp-als.html">Local Convergence Analysis of CP-ALS for Tensor Completion</a></h3>
+<p class="subline">Undergraduate Researcher · Advisor: <a href="https://acms.nd.edu/people/yuefeng-han/">Prof. Yuefeng Han</a></p>
+<p class="summary">I aim to develop a rigorous proof of the fast convergence of the synchronous CP-ALS algorithm for noisy tensor completion under a fixed Bernoulli observation mask. The project is inspired by <a href="https://arxiv.org/abs/2505.23046" rel="noopener noreferrer" target="_blank">Tang et al., Revisit CP Tensor Decomposition: Statistical Optimality and Fast Convergence</a>. I study observation-dependent row-wise least-squares updates, conditioning of random Gram matrices, and iterate–sample dependence. Numerical experiments help identify regimes of fast recovery and instability.</p>
+<div class="highlights"><span><strong>35/35</strong> recoveries in a selected paired warm-start scenario</span><span><strong>40</strong> median iterations</span><span><strong>5%</strong> observed entries</span></div>
+<div class="figure-grid">
+<figure><a href="research/cp-als.html"><img alt="Median relative reconstruction error decreases as CP-ALS, damped ALS, and a gradient descent baseline iterate." loading="lazy" src="figures/01_fast_convergence.png"/></a><figcaption>Median convergence curves for three methods on the same 35 masked datasets (noise-free, warm start). This is a specific experimental regime, not a general speed guarantee.</figcaption></figure>
+<figure><a href="research/cp-als.html"><img alt="Independent CP-ALS validation experiment reporting recovery counts and median iteration counts for three initialization types." loading="lazy" src="figures/03_independent_validation.png"/></a><figcaption>Independent validation: up to 1,000 trials per initialization family, under two selected sampling/coherence settings.</figcaption></figure>
+</div>
+<div class="project-links"><a href="research/cp-als.html">Research details &amp; more figures →</a></div>
+</article>
+<article class="research-entry">
+<p class="research-meta">Summer 2025   /   The University of Hong Kong</p>
+<h3><a href="research/robust-pca.html">Certifying Optimality in Nonconvex Robust PCA</a></h3>
+<p class="subline">Summer Research Fellow · Advisor: <a href="https://lexiaolai.com/">Prof. Lexiao Lai</a></p>
+<p class="summary">For an <strong>ℓ₁-loss, low-rank factorized robust PCA</strong> objective, I studied first-order optimality at ground-truth factorizations. The analysis uses low-rank tangent-space projections, incoherence assumptions, and concentration estimates to derive conditions certifying <strong>Clarke criticality with high probability</strong>. Our paper also studies the contrasting local geometry of exact-rank and overparameterized factorizations.</p>
+<div aria-label="factorized robust PCA objective" class="formula">min<sub>X,Y</sub> ‖XY<sup>⊤</sup> − M‖<sub>1</sub>    with   M = L + S</div><div class="figure-grid rpca-figures">
+<figure><a href="research/robust-pca.html"><img alt="Schematic contrast of a sharp local minimum and a strict saddle at a critical point" loading="lazy" src="figures/rpca_critical_point_geometry.png"/></a><figcaption>Local geometry: ground-truth solutions are sharp local minima for exact rank, and strict saddles for overparameterized factors. Conceptual schematic.</figcaption></figure>
+<figure><a href="research/robust-pca.html"><img alt="Paper Table 1 comparison of runtime and recovery accuracy for five robust PCA solvers" loading="lazy" src="figures/rpca_benchmark.png"/></a><figcaption>Numerical comparison from our preprint (Table 1): runtime and recovery error on large synthetic matrices.</figcaption></figure>
+</div>
+<div class="project-links"><a href="research/robust-pca.html">Research explanation →</a><a href="https://arxiv.org/abs/2601.21333" rel="noopener noreferrer" target="_blank">Read preprint ↗</a></div>
+</article>
+<article class="research-entry">
+<p class="research-meta">Summer 2024   /   The University of Hong Kong</p>
+<h3>Quantitative Trading Simulation</h3>
+<p class="subline">Research Internship · Advisor: Dr. Eric Ah Lik Li</p>
+<p class="summary">Implemented quantitative trading simulations in Python with the <a href="https://github.com/quantopian/zipline" rel="noopener noreferrer" target="_blank">Zipline package</a>, and applied statistical hypothesis testing to compare simulated outcomes with empirical market results.</p>
+</article>
+</section>
+<section class="main-section" id="experience">
+<div class="section-heading"><h2>Experience</h2></div>
+<div class="timeline">
+<div class="timeline-row"><div class="timeline-date">2026.06 – Present</div><div><h3>Undergraduate Researcher · University of Notre Dame</h3><p>Tensor completion and CP-ALS · Advisor: Prof. Yuefeng Han</p></div></div>
+<div class="timeline-row"><div class="timeline-date">2025.06 – 2025.08</div><div><h3>Summer Research Fellow · The University of Hong Kong</h3><p>Nonsmooth nonconvex robust PCA · Advisor: Prof. Lexiao Lai</p></div></div>
+<div class="timeline-row"><div class="timeline-date">2024.07 – 2024.08</div><div><h3>Research Intern · The University of Hong Kong</h3><p>Quantitative trading simulation · Advisor: Dr. Eric Ah Lik Li</p></div></div>
+</div>
+</section>
+<section class="main-section" id="education">
+<div class="section-heading"><h2>Education</h2></div>
+<div class="education-grid">
+<div class="edu-card"><h3>The University of Hong Kong</h3><p>B.Sc. in Mathematics · Minor in Statistics</p><p>September 2023 – June 2027 (expected)</p></div>
+<div class="edu-card"><h3>University of Notre Dame</h3><p>Semester Exchange</p><p>January – May 2026</p></div>
+</div>
+</section>
+<section class="main-section" id="honors">
+<div class="section-heading"><h2>Honors &amp; Awards</h2></div>
+<ul class="awards-list">
+<li><span class="news-date">2026</span><span>HKU–Notre Dame Scholarships for Student Exchange</span></li>
+<li><span class="news-date">2025</span><span>Summer Research Fellowship, HKU Faculty of Science</span></li>
+<li><span class="news-date">2023–2024</span><span>Stanley Chu and Annie Chow Scholarship in Student Enrichment</span></li>
+<li><span class="news-date">2023–2024</span><span>Dean's Honours List, The University of Hong Kong</span></li>
+</ul>
+</section>
+</main>
+<footer class="container footer"><span>© 2026 Pinxi Gong · Last updated November 2026</span></footer>
 </body>
 </html>

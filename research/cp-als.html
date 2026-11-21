@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<meta content="Numerical experiments and convergence theory for masked CP-ALS tensor completion under fixed Bernoulli observations." name="description"/>
+<meta content="CP-ALS Tensor Completion | Pinxi Gong" property="og:title"/>
+<meta content="Numerical experiments and convergence theory for masked CP-ALS tensor completion under fixed Bernoulli observations." property="og:description"/>
+<meta content="website" property="og:type"/>
+<title>CP-ALS Tensor Completion | Pinxi Gong</title>
+<link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="site-nav"><div class="container nav-inner">
+<a class="brand" href="/">Pinxi Gong</a>
+<nav aria-label="Main navigation" class="nav-links"><a href="/#publications">Publications</a><a href="/#interests">Interests</a><a href="/#research">Research</a><a href="/#experience">Experience</a><a href="/#education">Education</a><a href="/#honors">Honors</a></nav>
+</div></div>
+<main class="container detail-main">
+<a class="back" href="../index.html#research">← Back to research</a>
+<header class="detail-header">
+<p class="eyebrow">Research project · 2026 – Present</p>
+<h1 class="detail-title">Local Convergence of CP-ALS for Tensor Completion</h1>
+<p class="tagline">University of Notre Dame · Advisor: <a href="https://acms.nd.edu/people/yuefeng-han/">Prof. Yuefeng Han</a></p>
+<p class="detail-lead">I aim to develop a rigorous proof of the fast convergence of the synchronous CP-ALS algorithm for noisy tensor completion under a fixed Bernoulli observation mask.</p><p>Inspired by <a href="https://arxiv.org/abs/2505.23046" rel="noopener noreferrer" target="_blank">Tang, Chhor, Klopp, and Zhang, Revisit CP Tensor Decomposition: Statistical Optimality and Fast Convergence</a>. The present project investigates the fixed-mask tensor completion setting.</p>
+</header>
+<section class="main-section">
+<div class="section-heading"><h2>Problem &amp; motivation</h2></div>
+<p>Consider recovering a low-rank tensor from observations sampled with a Bernoulli mask. We study a <strong>synchronous, normalized CP alternating least-squares (ALS)</strong> scheme. Unlike the fully observed setting, each factor row is updated from a different random least-squares problem determined by the observed entries.</p>
+<div aria-label="Tensor model and observations" class="formula">𝒳 = ∑<sub>r=1</sub><sup>R</sup> λ<sub>r</sub> a<sub>1,r</sub> ⊗ ··· ⊗ a<sub>d,r</sub>   ·   Ω ∼ Bernoulli(q)</div>
+<p>The fixed observation mask introduces a major difficulty in the convergence analysis: at later iterations, the estimated factors depend on the <em>same</em> observations used to construct the next random Gram matrices. Standard concentration arguments that assume independent estimates and samples do not apply directly.</p>
+<ul class="detail-list">
+<li>Derived <strong>observation-dependent, row-wise least-squares updates</strong> for the masked CP model.</li>
+<li>Investigated <strong>invertibility, conditioning, and concentration</strong> of random row Gram matrices.</li>
+<li>Explored candidate local-convergence proof strategies while documenting the obstacles posed by <strong>iterate–sample dependence</strong>.</li>
+<li>Used synthetic numerical experiments to identify robust-recovery regimes and genuine instabilities of the synchronous update.</li>
+</ul>
+</section>
+<section class="main-section">
+<div class="section-heading"><h2>Numerical result I · Fast convergence</h2></div>
+<p>In a selected noise-free, warm-start experiment on a <strong>32 × 32 × 32 rank-3 tensor</strong>, with <strong>5% observed entries</strong> and component correlation ξ = 0.2, the three methods were evaluated on 35 matched masked datasets. Successful runs required both factor and full-tensor relative errors below 10<sup>−6</sup>.</p>
+<div class="stat-grid">
+<div class="stat"><div class="big">35 / 35</div><div class="lbl">Jacobi CP-ALS recoveries</div></div>
+<div class="stat"><div class="big">40</div><div class="lbl">Median Jacobi iterations among successes</div></div>
+<div class="stat"><div class="big">60</div><div class="lbl">Median 50% damped ALS iterations</div></div>
+<div class="stat"><div class="big">290</div><div class="lbl">Median baseline GD iterations</div></div>
+</div>
+<figure class="figure-wide"><img alt="Median full-tensor relative reconstruction error trajectories for Jacobi CP-ALS, damped ALS, and Cai-style gradient descent in a matched 35-run experiment." src="../figures/01_fast_convergence.png"/><figcaption>Figure 1. Median full-tensor error over iterations across all 35 paired trials (including unsuccessful runs in the median). Warm-start 0.3, q = 5%, ξ = 0.2, noise-free; 450-iteration budget.</figcaption></figure>
+<div class="note-box"><p><strong>Interpretation.</strong> The original synchronous CP-ALS update reaches the specified recovery criterion in fewer median iterations than the tested fixed-step regularized GD baseline. This is not a universal wall-clock speed comparison: the GD method is a particular Appendix-E-style implementation, not an end-to-end reproduction with its spectral initialization, and the comparative initial scaling uses ground-truth weights. The relative ordering can also change with step-size tuning.</p></div>
+</section>
+<section class="main-section">
+<div class="section-heading"><h2>Numerical result II · Reliability across initializations</h2></div>
+<p>To test whether favorable behavior was confined to isolated trajectories, an independent study used <strong>1,000 newly drawn masks and initialization seeds per condition</strong>, with a 3,000-iteration budget.</p>
+<figure class="figure-wide"><img alt="Recovery frequencies and median iterations across 1000 independent trials for warm and Gaussian random starts." src="../figures/03_independent_validation.png"/><figcaption>Figure 2. Independent recovery study. At ξ = 0.2 and q = 5%, warm starts at ε₀ = 0.3 and 0.8 each recovered 1,000/1,000 cases (median 60 iterations); Gaussian random initialization recovered 988/1,000 (median 90). Separate ξ = 0.5, q = 15% conditions also achieved 1,000/1,000.</figcaption></figure>
+<p>These results support the existence of favorable regimes with a relatively broad empirical basin of attraction. They should not be interpreted as a guarantee for arbitrary tensors, masks, or initializations.</p>
+</section>
+<section class="main-section">
+<div class="section-heading"><h2>Numerical result III · Sampling and local stability</h2></div>
+<p>In paired experiments at component correlation ξ = 0.2, higher sampling rates can greatly reduce the number of iterations needed for recovery. However, the broader parameter study also exhibits locally unstable regions at high component correlation, including failures under very accurate warm starts.</p>
+<figure class="figure-wide"><img alt="Iteration counts and recovery counts for three methods across sampling rates." src="../figures/02_iteration_comparison.png"/><figcaption>Figure 3. Median successful iterations across observation probabilities at ξ = 0.2; labels indicate the number of recovered trials out of 35.</figcaption></figure>
+<figure class="figure-wide"><img alt="Recovery success heat map across sampling rates and component correlations." src="../figures/05_recovery_landscape.png"/><figcaption>Figure 4. Recovery landscape for the unmodified synchronous Jacobi update. Synthetic experiments show successful regimes and high-correlation failure regions. Main-grid conditions use 100 draws per cell.</figcaption></figure>
+</section>
+<section class="main-section">
+<div class="section-heading"><h2>Numerical result IV · Noise-limited accuracy</h2></div>
+<p>When observations include additive noise, perfect recovery is generally not the right performance target. Instead, the experiments examine whether and how quickly the methods reach a noise-dependent error floor.</p>
+<figure class="figure-wide"><img alt="Convergence performance under noisy observations based on retrospectively identified error floors." src="../figures/04_noisy_convergence.png"/><figcaption>Figure 5. A diagnostic comparison of iteration counts to reach a retrospectively defined final-error neighborhood in noisy settings. It is not a practical stopping rule or a proof of statistical optimality.</figcaption></figure>
+</section>
+<section class="main-section">
+<div class="section-heading"><h2>What these experiments suggest</h2></div>
+<p>The theory must reconcile three phenomena: <strong>rapid local recovery</strong> in favorable low-coherence settings, <strong>sensitivity to the structure of initialization</strong>, and <strong>genuine instability</strong> of fully synchronous updates in some regimes. The gap between useful empirical conditions and conservative sufficient conditions remains an important motivation for the proof analysis.</p>
+<div class="note-box"><p><strong>Scope of the evidence.</strong> All plotted data are synthetic. The 35-run paired comparison, the separate 1,000-trial validation, and the 100-draw recovery landscape are distinct experimental designs and must not be pooled. The reported median iteration counts are not end-to-end application runtimes, and this page does not claim a completed general convergence theorem.</p></div>
+<div class="project-links"><a href="../index.html#research">Return to homepage →</a></div>
+</section>
+</main>
+<footer class="container footer"><span>© 2026 Pinxi Gong</span><span><a href="../cv.pdf">CV</a> · <a href="mailto:gpx2005@connect.hku.hk">Email</a></span></footer>
+</body>
+</html>

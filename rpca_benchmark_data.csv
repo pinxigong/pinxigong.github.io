@@ -1,0 +1,6 @@
+method,time_seconds,relative_spectral_error
+Subgradient (factorized RPCA),199.4,8.21e-10
+PCP (IALM),479.1,1.48e-08
+Accelerated alternating projection,196.0,0.000268
+Fast RPCA (GD),254.1,0.0775
+Nonconvex alternating minimization,321.0,0.464
