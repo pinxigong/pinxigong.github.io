@@ -1,6 +1,6 @@
 # Pinxi Gong — Minimal Academic Website
 
-极简英文科研个人主页。**纯 HTML + CSS，没有 JavaScript、框架、动画或外部依赖。** 使用相对路径，支持 GitHub Pages 个人主页仓库和项目仓库。
+英文科研个人主页。**纯 HTML + CSS，暂无 JavaScript、框架、动画或外部依赖。** 使用相对路径，支持 GitHub Pages 个人主页仓库和项目仓库。
 
 ## 文件说明
 
